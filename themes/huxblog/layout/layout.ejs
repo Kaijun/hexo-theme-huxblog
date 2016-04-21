@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<%- partial('_partial/head') %>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <%- partial('_partial/nav') %>
+
+    <!-- Main Content -->
+    <%- body %>
+
+    <!-- Footer -->
+    <%- partial('_partial/footer') %>
+
+
+<!-- Image to hack wechat -->
+<img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
