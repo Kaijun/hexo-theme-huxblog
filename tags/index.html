@@ -165,11 +165,9 @@
                 
                     <a href="#生活" title="生活" rel="1">生活</a>
                 
-                    <a href="#前端开发" title="前端开发" rel="3">前端开发</a>
+                    <a href="#前端开发" title="前端开发" rel="2">前端开发</a>
                 
-                    <a href="#JavaScript" title="JavaScript" rel="3">JavaScript</a>
-                
-                    <a href="#翻译" title="翻译" rel="1">翻译</a>
+                    <a href="#JavaScript" title="JavaScript" rel="2">JavaScript</a>
                 
                     <a href="#OS" title="OS" rel="1">OS</a>
                 
@@ -218,13 +216,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/hexo-theme-huxblog/2015/09/22/js-version/">
+                     <a href="/hexo-theme-huxblog/2015/07/09/js-module-7day/">
                         <h2 class="post-title">
-                            Example Post
+                            Example Post using Keynote Layout
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                ES5, ES6, ES2016, ES.Next: What's going on with JavaScript versioning?
+                                Keynote: JavaScript Modularization Journey
                             </h3>
                         
                     </a>
@@ -244,25 +242,6 @@
                         
                             <h3 class="post-subtitle">
                                 CommonJS，RequireJS，SeaJS 归纳笔记
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/hexo-theme-huxblog/2015/07/09/js-module-7day/">
-                        <h2 class="post-title">
-                            Example Post using Keynote Layout
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                Keynote: JavaScript Modularization Journey
                             </h3>
                         
                     </a>
@@ -282,13 +261,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/hexo-theme-huxblog/2015/09/22/js-version/">
+                     <a href="/hexo-theme-huxblog/2015/07/09/js-module-7day/">
                         <h2 class="post-title">
-                            Example Post
+                            Example Post using Keynote Layout
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                ES5, ES6, ES2016, ES.Next: What's going on with JavaScript versioning?
+                                Keynote: JavaScript Modularization Journey
                             </h3>
                         
                     </a>
@@ -308,51 +287,6 @@
                         
                             <h3 class="post-subtitle">
                                 CommonJS，RequireJS，SeaJS 归纳笔记
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/hexo-theme-huxblog/2015/07/09/js-module-7day/">
-                        <h2 class="post-title">
-                            Example Post using Keynote Layout
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                Keynote: JavaScript Modularization Journey
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="翻译">
-                    <span class="tag-text">翻译</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/hexo-theme-huxblog/2015/09/22/js-version/">
-                        <h2 class="post-title">
-                            Example Post
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                ES5, ES6, ES2016, ES.Next: What's going on with JavaScript versioning?
                             </h3>
                         
                     </a>
@@ -556,7 +490,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("/js/jquery.tagcloud.js",function(){
+        async("http://kaijun.rocks/hexo-theme-huxblog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
