@@ -73,7 +73,6 @@ figure.highlight .gutter {
   text-align: right;
 }
 figure.highlight .code {
-  padding-left: 0;
   border-left: 1px solid #fff;
   color: #666;
 }
