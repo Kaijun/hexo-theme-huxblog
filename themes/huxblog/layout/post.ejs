@@ -9,7 +9,7 @@ layout: layout
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('<%= config.root %><%= page["header-img"] || config["header-img"] %>')
+        background-image: url('<%= page["header-img"] || config.root + config["header-img"] %>')
     }
 </style>
 <header class="intro-header" >
