@@ -45,8 +45,7 @@ CommonJS 本质上只是一套规范（API 定义），而 Node.js 采用并实�
 
 
 让我们看看 Node 中的实现：
-
-```js
+{% codeblock lang:js %}
 // 由于 Node 原生支持模块的作用域，并不需要额外的 wrapper
 // "as though the module was wrapped in a function"
 
@@ -56,7 +55,8 @@ a.doSomething()         // 等上一句执行完才会执行
 exports.b = function(){ // 暴露 b 函数接口
   // do something
 }
-```
+{% endcodeblock %}
+
 
 `exports`是一个内置对象，就像`require`是一个内置加载函数一样。如果你希望直接赋值一个完整的对象或者构造函数，覆写`module.exports`就可以了。
 
@@ -105,41 +105,16 @@ CommonJS 前身叫 ServerJS ，**后来希望能更加 COMMON，成为通吃各�
 
 RequireJS 主要解决的还是 CommonJS 同步加载脚本不适合浏览器 这个问题：
 
-```js
-//CommonJS
+{% gist 65481dbbf6d16e831a6cc89c3e37e6e5 display-emails-from-database.php %}
 
-var Employee = require("types/Employee");
 
-function Programmer (){
-    //do something
-}  
-
-Programmer.prototype = new Employee();
-
-//如果 require call 是异步的，那么肯定 error
-//因为在执行这句前 Employee 模块肯定来不及加载进来
-```
 > As the comment indicates above, if require() is async, this code will not work. However, loading scripts synchronously in the browser kills performance. So, what to do?
 
 所以我们需要 **Function Wrapping** 来获取依赖并且提前通过 script tag 提前加载进来
 
 
-```js
-//AMD Wrapper
+{% jsfiddle shorttag [tabs] [skin] [width] [height] %}
 
-define(
-    [types/Employee],    //依赖
-    function(Employee){  //这个回调会在所有依赖都被加载后才执行
-
-        function Programmer(){
-            //do something
-        };
-
-        Programmer.prototype = new Employee();
-        return Programmer;  //return Constructor
-    }
-)
-```
 
 当依赖模块非常多时，这种**依赖前置**的写法会显得有点奇怪，所以 AMD 给了一个语法糖， **simplified CommonJS wrapping**，借鉴了 CommonJS 的 require 就近风格，也更方便对 CommonJS 模块的兼容：
 
