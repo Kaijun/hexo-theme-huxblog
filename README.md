@@ -36,7 +36,7 @@ Replace with your own repo!
 ```
 hexo new post IMAPOST
 hexo serve // run hexo in local environment
-hexo deploy // hexo will push the static files automatically into the specifig branch(gh-pages) of your repo!
+hexo clean && hexo deploy // hexo will push the static files automatically into the specifig branch(gh-pages) of your repo!
 ```
 
 ##### 4.Enjoy! 
