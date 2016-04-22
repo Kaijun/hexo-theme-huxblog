@@ -58,7 +58,7 @@ layout: layout
                     data-thread-key="<%= page.path %>"
                     data-title="<%= page.title %>"
                     data-url="<%= page.permalink %>"
-                    data-images="<%= page["header-img"] ? page.permalink + page["header-img"] : config.url + config.root + config["header-img"] %>"
+                    data-images="<%= page["header-img"] ? page.permalink + page["header-img"] : '' %>"
                     data-content="<%- truncate(strip_html(page.content), {length: 50, omission: '...'}) %> | <%= config.SEOTitle %> " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
