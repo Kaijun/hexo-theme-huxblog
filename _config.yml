@@ -31,8 +31,9 @@ keyword: ""
 weibo_username:     Demonbane
 zhihu_username:     Demonbane
 github_username:    Kaijun
-#twitter_username:  huxpro
-# facebook_username:  huxpro
+twitter_username:   Demonbane_x
+facebook_username:  demonbane.cn
+linkedin_username:  kaijun-chen-42089354
 
 # Build settings
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
