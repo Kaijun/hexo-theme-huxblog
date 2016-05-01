@@ -19,7 +19,7 @@ layout: layout
                 <div class="post-heading">
                     <div class="tags">
                         <% page.tags.forEach(function(tag){ %>
-                          <a class="tag" href="<%= config.root %><%= tag.path %>" title="<%= tag.name %>"><%= tag.name %></a>
+                          <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                         <% }) %>
 
                     </div>
