@@ -21,7 +21,6 @@ layout: layout
                         <% page.tags.forEach(function(tag){ %>
                           <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
                         <% }) %>
-
                     </div>
                     <h1><%= page.title %></h1>
                     <h2 class="subheading"><%= page.subtitle %></h2>
@@ -123,7 +122,9 @@ layout: layout
                     <!-- no hr -->
                     <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <%- list_tags({style: '', class: '', show_count: false, separator: ''}) %>
+                       <% page.tags.forEach(function(tag){ %>
+                          <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+                        <% }) %>
                     </div>
                 </section>
                 <% }%>
