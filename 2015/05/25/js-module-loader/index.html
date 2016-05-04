@@ -158,11 +158,10 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/hexo-theme-huxblog/tags/前端开发/" title="前端开发">前端开发</a>
+                          <a class="tag" href="/hexo-theme-huxblog/tags/#前端开发" title="前端开发">前端开发</a>
                         
-                          <a class="tag" href="/hexo-theme-huxblog/tags/JavaScript/" title="JavaScript">JavaScript</a>
+                          <a class="tag" href="/hexo-theme-huxblog/tags/#JavaScript" title="JavaScript">JavaScript</a>
                         
-
                     </div>
                     <h1>Example Post with Code Highlight</h1>
                     <h2 class="subheading">CommonJS，RequireJS，SeaJS 归纳笔记</h2>
@@ -357,6 +356,22 @@ Here comes Module!
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
 
     <!-- Sidebar Container -->
 
@@ -371,7 +386,11 @@ Here comes Module!
                     <!-- no hr -->
                     <h5><a href="/hexo-theme-huxblog/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        <a class="tag-link" href="/hexo-theme-huxblog/tags/JavaScript/">JavaScript</a><a class="tag-link" href="/hexo-theme-huxblog/tags/Linux/">Linux</a><a class="tag-link" href="/hexo-theme-huxblog/tags/OS/">OS</a><a class="tag-link" href="/hexo-theme-huxblog/tags/Unix/">Unix</a><a class="tag-link" href="/hexo-theme-huxblog/tags/前端开发/">前端开发</a><a class="tag-link" href="/hexo-theme-huxblog/tags/生活/">生活</a><a class="tag-link" href="/hexo-theme-huxblog/tags/翻译/">翻译</a>
+                       
+                          <a class="tag" href="/hexo-theme-huxblog/tags/#前端开发" title="前端开发">前端开发</a>
+                        
+                          <a class="tag" href="/hexo-theme-huxblog/tags/#JavaScript" title="JavaScript">JavaScript</a>
+                        
                     </div>
                 </section>
                 
@@ -472,6 +491,15 @@ Here comes Module!
                 <ul class="list-inline text-center">
                 
                 
+                    <li>
+                        <a target="_blank" href="https://twitter.com/Demonbane_x">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
                 
                     <li>
                         <a target="_blank" href="https://www.zhihu.com/people/Demonbane">
@@ -495,6 +523,15 @@ Here comes Module!
                 
 
                 
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/demonbane.cn">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
                 
                     <li>
@@ -502,6 +539,17 @@ Here comes Module!
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/kaijun-chen-42089354">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
                             </span>
                         </a>
                     </li>
@@ -627,6 +675,54 @@ Here comes Module!
       s.parentNode.insertBefore(hm, s);
     })();
 </script>
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/hexo-theme-huxblog/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
 
 
 
