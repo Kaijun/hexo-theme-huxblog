@@ -1,0 +1,70 @@
+---
+layout: layout
+---
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('<%= config.root %><%= page["header-img"] || config["header-img"] %>')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1><%= page.title || config.title %></h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading"><%= page.description || config.subtitle || "" %></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 归档列表 -->
+
+            <% 
+                var years = {};
+                site.posts.sort('date').reverse().forEach(function(post){
+                    var year = post.date.year()
+                    if(years[year]===undefined){
+                        years[year] = [];
+                    }
+                    years[year].push(post);
+                });
+            %>
+
+             <!-- 归档列表 -->
+
+
+
+            <% Object.keys(years).reverse().forEach(function(year){  %>
+            <div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="<%= year %>">
+                    <span class="tag-text"><%= year %></span>
+                </span>
+                <ul>
+                <% years[year].map(function(post){  %>
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    <%= post.date.format('MM-DD') %>
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="<%- config.root %><%- post.path %>" style="color: #0085a1">
+                        <span>
+                            <%- post.title || "Untitled" %>
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                <% }) %>
+
+                </ul>
+            </div>
+            <% }) %>
+
+
+        </div>
+    </div>
+</div>
