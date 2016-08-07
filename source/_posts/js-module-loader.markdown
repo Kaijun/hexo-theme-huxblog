@@ -36,6 +36,12 @@ tags:
 
 
 
+```
+function autoDetect(){
+    console.log('ye, it is written in JavaScript!')
+}
+```
+
 ## CommonJS & Node
 
 > Javascript: not just for browsers any more! —— CommonJS Slogen
