@@ -1,7 +1,7 @@
 /*https://github.com/chriskempson/tomorrow-theme*/
 
 $highlight_theme = hexo-config("highlight_theme") || "normal"
-
+$code-font-family = hexo-config("code-font-family") || "monospace"
 
 if $highlight_theme == "normal"
   $highlight-background   = #f7f7f7
@@ -30,6 +30,20 @@ if $highlight_theme == "night"
   $highlight-aqua         = #8abeb7
   $highlight-blue         = #81a2be
   $highlight-purple       = #b294bb
+
+if $highlight_theme == "yilia"
+  $highlight-background   = #272822
+  $highlight-current-line = #393939
+  $highlight-selection    = #4271ae
+  $highlight-foreground   = #FFFFFF
+  $highlight-comment      = #75715E
+  $highlight-red          = #F92672
+  $highlight-orange       = #f99157
+  $highlight-yellow       = #E6DB74
+  $highlight-green        = #A6E22E
+  $highlight-aqua         = #66D9EF
+  $highlight-blue         = #4271ae
+  $highlight-purple       = #8959a8
 
 if $highlight_theme == "night yilia"
   $highlight-background   = #4d4d4d
@@ -103,7 +117,7 @@ article-padding = 20px
 color-border = #ddd
 
 
-$code-font-size                 = 13px
+$code-font-size                 = 15px
 $code-background                = #eee
 $code-foreground                = #555
 $code-border-radius             = 4px
@@ -120,9 +134,9 @@ $code-block {
   line-height: $line-height-code-block;
 }
 
-/*pre, code { 
+pre, code {
   font-family: $code-font-family;
-}*/
+}
 
 /*
 .post-container code {
@@ -222,12 +236,14 @@ $code-block {
   .params
   .constant
   .command {
-    color: $highlight-orange;
+    color: $highlight-green;
   }
 
   .ruby .class .title
   .css .rules .attribute
-  .string
+  .string {
+    color: $highlight-yellow;
+  }
   .value
   .inheritance
   .header
@@ -236,12 +252,12 @@ $code-block {
   .special
   .number
   .formula {
-    color: $highlight-green;
+    color: $highlight-purple;
   }
 
   .title
   .css .hexcolor {
-    color: $highlight-aqua;
+    color: $highlight-orange;
   }
 
   .function
@@ -256,8 +272,12 @@ $code-block {
   }
 
   .keyword
+  .meta
+  .preprocessor
   .javascript .function {
-    color: $highlight-purple;
+    color: $highlight-aqua;
   }
 
 }
+
+@import "scroll"
