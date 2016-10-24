@@ -13,7 +13,7 @@
 
     <title>
         
-          Example Post With Default Header Image - Kaijun的博客 | Kaijun&#39;s Blog
+          Example Post With Default Header Image and Catalog - Kaijun的博客 | Kaijun&#39;s Blog
         
     </title>
 
@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/hexo-theme-huxblog/archives/">Archives</a>
+                            <a href="/hexo-theme-huxblog/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/hexo-theme-huxblog/about/">About</a>
+                            <a href="/hexo-theme-huxblog/archives/">Archives</a>
                         </li>
                         
                     
@@ -172,7 +172,7 @@
                           <a class="tag" href="/hexo-theme-huxblog/tags/#Linux" title="Linux">Linux</a>
                         
                     </div>
-                    <h1>Example Post With Default Header Image</h1>
+                    <h1>Example Post With Default Header Image and Catalog</h1>
                     <h2 class="subheading">不适合人类阅读，非常水的自我笔记</h2>
                     <span class="meta">
                         Posted by Hux on
@@ -198,35 +198,6 @@
                 <blockquote>
 <p>This document is not completed and will be updated anytime.</p>
 </blockquote>
-<h2 id="Catagory"><a href="#Catagory" class="headerlink" title="Catagory"></a>Catagory</h2><ol>
-<li><a href="#unix">Unix</a><ol>
-<li><a href="#bell-labs">Bell Labs</a></li>
-<li><a href="#xenix">Xenix</a></li>
-<li><a href="#bsd">BSD</a></li>
-<li><a href="#freebsd--apple">FreeBSD &amp; Apple</a></li>
-<li><a href="#nextstep">NeXTStep</a></li>
-<li><a href="#darwin">Darwin</a></li>
-<li><a href="#posix">POSIX</a></li>
-</ol>
-</li>
-<li><a href="#unix-like">Unix-like</a><ol>
-<li><a href="#single-unix-specification">Single Unix Specification</a></li>
-<li><a href="#apple-ios">Apple iOS</a></li>
-<li><a href="#xnu-kernel">XNU Kernel</a></li>
-</ol>
-</li>
-<li><a href="#linux">Linux</a><ol>
-<li><a href="#linux-kernel">Linux Kernel</a></li>
-<li><a href="#gnu-project">GNU Project</a></li>
-<li><a href="#android">Android</a></li>
-<li><a href="#android-kernel">Android Kernel</a></li>
-<li><a href="#android-rom">Android ROM</a></li>
-<li><a href="#chrome-os">Chrome OS</a></li>
-<li><a href="#chromium-os">Chromium OS</a></li>
-</ol>
-</li>
-</ol>
-<hr>
 <h2 id="Unix"><a href="#Unix" class="headerlink" title="Unix"></a>Unix</h2><blockquote>
 <p>Unix is a <strong>family</strong> of multitasking, multiuser computer OS.</p>
 </blockquote>
@@ -392,6 +363,20 @@
             </div>
     <!-- Side Catalog Container -->
         
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
 
     <!-- Sidebar Container -->
 
@@ -464,40 +449,6 @@
 
 
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
 
 
 
@@ -697,6 +648,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/hexo-theme-huxblog/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
