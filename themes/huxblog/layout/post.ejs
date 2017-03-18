@@ -5,35 +5,6 @@ layout: layout
 <!-- Image to hack wechat -->
 <!-- <img src="<%= config['url'] %><%= config['root'] %>img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
-
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        background-image: url('<%= page["header-img"] || config.root + config["header-img"] %>')
-    }
-</style>
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        <% page.tags.forEach(function(tag){ %>
-                          <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
-                        <% }) %>
-                    </div>
-                    <h1><%= page.title %></h1>
-                    <h2 class="subheading"><%= page.subtitle || "" %></h2>
-                    <span class="meta">
-                        Posted by <%- page.author || config.author %> on
-                        <%= page.date.format(config.date_format) %>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
 <!-- Post Content -->
 <article>
     <div class="container">
@@ -118,7 +89,7 @@ layout: layout
                 <div class="side-catalog">
                     <hr class="hidden-sm hidden-xs">
                     <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
+                        <a class="catalog-toggle" href="#">Content</a>
                     </h5>
                     <ul class="catalog-body"></ul>
                 </div>
@@ -216,9 +187,9 @@ layout: layout
 <script>
     async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
