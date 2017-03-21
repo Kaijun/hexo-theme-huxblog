@@ -1,0 +1,93 @@
+<!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="<%= config.root %>about/">ABOUT ME</a></h5>
+    <div class="short-about">
+
+        <% if(config['sidebar-avatar']) { %>
+            <img id = "avatar_pic" src="<%= config['root'] %><%= config['sidebar-avatar'] %>" />
+        <% } %>
+
+        <% if(config['sidebar-about-description']) { %>
+            <p><%= config['sidebar-about-description'] %></p>
+        <% }%>
+
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            <% if (config.RSS) { %>
+                <li>
+                    <a href="<%= config.root + 'feed.xml' %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+            <% if (config.twitter_username) { %>
+                <li>
+                    <a target="_blank" href="https://twitter.com/<%= config.twitter_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+            <% if (config.zhihu_username) { %>
+                <li>
+                    <a target="_blank" href="https://www.zhihu.com/people/<%= config.zhihu_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa  fa-stack-1x fa-inverse">知</i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+
+            <% if (config.weibo_username) { %>
+                <li>
+                    <a target="_blank" href="http://weibo.com/<%= config.weibo_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+
+            <% if (config.facebook_username) { %>
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/<%= config.facebook_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+
+            <% if (config.github_username) { %>
+                <li>
+                    <a target="_blank"  href="https://github.com/<%= config.github_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+            
+            
+            <% if (config.linkedin_username) { %>
+                <li>
+                    <a target="_blank"  href="https://www.linkedin.com/in/<%= config.linkedin_username %>">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</section>

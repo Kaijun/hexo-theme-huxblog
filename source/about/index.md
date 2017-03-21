@@ -2,11 +2,23 @@
 layout: "about"
 title: "About"
 date: 2016-04-21 04:48:33
-description: "Hey, this is Kaijun."
-header-img: "img/about-bg.jpg"
+description: "Wish for the Best, Prepare for the Worst"
+header-img: "img/header_img/Iron-Man-3.jpg"
 comments: true
 ---
 
+> 光有好奇心而不去實踐，等於自願放棄成功機會
+> 別為自己畫地自限，Just Do It！！
+
+Hey, 我是**顏御軒**, 程式＆設計師, 主要研究方向為 [網頁設計](), [人工智慧](), [物聯網技術]()
+
+喜歡看電影，吸收新穎的想法，某年夏天一位超級英雄誕生於大螢幕上——鋼鐵人，那也正是對我人生最終要的一刻，我燃起對科技的熱情
+人一天也就24hr
+
+另外，我有一些症狀，如有冒犯請各位見諒:
+- 完美主義者，希望把事情做得盡善盡美
+- 程式碼潔癖，看到亂糟糟的程式碼會瘋掉
+- 鋼鐵人粉絲，不解釋
 
 >写写代码，做做设计，看看产品。
 >世界那么大，多玩玩看看。

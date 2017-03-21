@@ -1,0 +1,263 @@
+/*https://github.com/chriskempson/tomorrow-theme*/
+
+$highlight_theme = hexo-config("highlight_theme") || "normal"
+
+
+if $highlight_theme == "normal"
+  $highlight-background   = #f7f7f7
+  $highlight-current-line = #efefef
+  $highlight-selection    = #d6d6d6
+  $highlight-foreground   = #4d4d4c
+  $highlight-comment      = #8e908c
+  $highlight-red          = #c82829
+  $highlight-orange       = #f5871f
+  $highlight-yellow       = #eab700
+  $highlight-green        = #718c00
+  $highlight-aqua         = #3e999f
+  $highlight-blue         = #4271ae
+  $highlight-purple       = #8959a8
+
+if $highlight_theme == "night"
+  $highlight-background   = #1d1f21
+  $highlight-current-line = #282a2e
+  $highlight-selection    = #373b41
+  $highlight-foreground   = #c5c8c6
+  $highlight-comment      = #969896
+  $highlight-red          = #cc6666
+  $highlight-orange       = #de935f
+  $highlight-yellow       = #f0c674
+  $highlight-green        = #b5bd68
+  $highlight-aqua         = #8abeb7
+  $highlight-blue         = #81a2be
+  $highlight-purple       = #b294bb
+
+if $highlight_theme == "night yilia"
+  $highlight-background   = #4d4d4d
+  $highlight-current-line = #393939
+  $highlight-selection    = #515151
+  $highlight-foreground   = #FFFFFF
+  $highlight-comment      = #75715E
+  $highlight-red          = #FD971F
+  $highlight-orange       = #f99157
+  $highlight-yellow       = #ffcc66
+  $highlight-green        = #E6DB74
+  $highlight-aqua         = #66cccc
+  $highlight-blue         = #A6E22E
+  $highlight-purple       = #F92672
+
+if $highlight_theme == "night eighties"
+  $highlight-background   = #2d2d2d
+  $highlight-current-line = #393939
+  $highlight-selection    = #515151
+  $highlight-foreground   = #cccccc
+  $highlight-comment      = #999999
+  $highlight-red          = #f2777a
+  $highlight-orange       = #f99157
+  $highlight-yellow       = #ffcc66
+  $highlight-green        = #99cc99
+  $highlight-aqua         = #66cccc
+  $highlight-blue         = #6699cc
+  $highlight-purple       = #cc99cc
+
+if $highlight_theme == "night blue"
+  $highlight-background   = #002451
+  $highlight-current-line = #00346e
+  $highlight-selection    = #003f8e
+  $highlight-foreground   = #ffffff
+  $highlight-comment      = #7285b7
+  $highlight-red          = #ff9da4
+  $highlight-orange       = #ffc58f
+  $highlight-yellow       = #ffeead
+  $highlight-green        = #d1f1a9
+  $highlight-aqua         = #99ffff
+  $highlight-blue         = #bbdaff
+  $highlight-purple       = #ebbbff
+
+if $highlight_theme == "night bright"
+  $highlight-background   = #000000
+  $highlight-current-line = #2a2a2a
+  $highlight-selection    = #424242
+  $highlight-foreground   = #eaeaea
+  $highlight-comment      = #969896
+  $highlight-red          = #d54e53
+  $highlight-orange       = #e78c45
+  $highlight-yellow       = #e7c547
+  $highlight-green        = #b9ca4a
+  $highlight-aqua         = #70c0b1
+  $highlight-blue         = #7aa6da
+  $highlight-purple       = #c397d8
+
+
+clearfix()
+  &:before
+  &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+  zoom: 1 if support-for-ie
+
+line-height = 1.6em
+font-size = 14px
+article-padding = 20px
+color-border = #ddd
+
+
+$code-font-size                 = 13px
+$code-background                = #eee
+$code-foreground                = #555
+$code-border-radius             = 4px
+
+
+// Placeholder: $code-block
+$code-block {
+  overflow: auto;
+  margin: 20px 0;
+  padding: 15px;
+  font-size $code-font-size;
+  color: $highlight-foreground;
+  background: $highlight-background;
+  line-height: $line-height-code-block;
+}
+
+/*pre, code { 
+  font-family: $code-font-family;
+}*/
+
+/*
+.post-container code {
+  padding: 2px 4px;
+  word-break: break-all;
+  color: $code-foreground;
+  background: $code-background;
+  border-radius: $code-border-radius;
+  font-size $code-font-size;
+}*/
+
+.post-container pre {
+  @extend $code-block;
+
+  code {
+    padding: 0;
+    color: $highlight-foreground;
+    background: none;
+    text-shadow: none;
+  }
+}
+
+.post-container .highlight {
+  @extend $code-block;
+
+  pre {
+    border: none;
+    margin: 0;
+    padding: 1px;
+  }
+
+  table {
+    margin: 0;
+    width: auto;
+    border: none;
+  }
+
+  td {
+    border: none !important;
+    padding: 0;
+  }
+
+  figcaption {
+    clearfix();
+    font-size: 1em;
+    color: $highlight-foreground;
+    line-height: 1em;
+    margin-bottom: 1em;
+
+    a {
+      float: right;
+      color: $highlight-foreground;
+
+      &:hover { border-bottom-color: $highlight-foreground; }
+    }
+  }
+
+  .gutter pre {
+    color: #666;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  .line { height: 20px; }
+}
+
+
+.post-container .gist table {
+  width: auto;
+
+  td { border: none; }
+}
+
+.post-container pre {
+
+  .comment { color: $highlight-comment; }
+
+  .variable
+  .attribute
+  .tag
+  .regexp
+  .ruby .constant
+  .xml .tag .title
+  .xml .pi
+  .xml .doctype
+  .html .doctype
+  .css .id
+  .css .class
+  .css .pseudo {
+    color: $highlight-red;
+  }
+
+  .number
+  .preprocessor
+  .built_in
+  .literal
+  .params
+  .constant
+  .command {
+    color: $highlight-orange;
+  }
+
+  .ruby .class .title
+  .css .rules .attribute
+  .string
+  .value
+  .inheritance
+  .header
+  .ruby .symbol
+  .xml .cdata
+  .special
+  .number
+  .formula {
+    color: $highlight-green;
+  }
+
+  .title
+  .css .hexcolor {
+    color: $highlight-aqua;
+  }
+
+  .function
+  .python .decorator
+  .python .title
+  .ruby .function .title
+  .ruby .title .keyword
+  .perl .sub
+  .javascript .title
+  .coffeescript .title {
+    color: $highlight-blue;
+  }
+
+  .keyword
+  .javascript .function {
+    color: $highlight-purple;
+  }
+
+}

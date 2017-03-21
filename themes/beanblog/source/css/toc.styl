@@ -1,0 +1,62 @@
+/*toc*/
+.toc-article
+  position: absolute
+  border-left: rgba(88,88,88,0.1) 1px solid
+  padding 1em 1em 0 1em
+  margin-left: 1em
+
+.toc-title
+  font-size 120%
+  &:before
+    font-family: "FontAwesome"
+    content: "\f02e"
+    margin-right: .5em
+    
+@media screen and (max-width: 1100px)
+  #toc
+    display: none
+
+#toc
+  width: inherit
+  line-height 1em
+  font-size 0.9em
+  float left
+  overflow: hidden
+  @media mq-mobile
+    display: none
+  @media mq-tablet
+    display: none
+
+.toc-fixed
+  position: fixed;
+  top: 60px;
+  margin-top: 0;
+  max-height: 81%;
+  overflow: hidden;
+  z-index: 1;
+
+.toc-nav
+  padding 0
+  margin 1em
+  line-height 1.8em
+  li
+    list-style-type: none
+    a:hover
+      background-color: transparent !important
+  .active > a
+    color: color-theme
+
+.toc-nav-link
+  font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
+  color: color-link
+  padding 1px !important
+  &:hover
+    color: color-theme
+
+.toc-nav-child 
+  margin-left 1.0em
+  
+#sidebar
+  display: inline;
+  float: left;
+  padding-left: 12px;
