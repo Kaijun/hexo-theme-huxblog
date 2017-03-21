@@ -1,0 +1,48 @@
+<!-- Modift by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        <% if (is_home()) { %>
+            background-image: url('<%= config.root + config["header-img"] %>')
+        <%} else if (is_post()){%>
+            background-image: url('<%= page["header-img"] %>')
+        <%} else {%>
+            background-image: url('<%= config.root + page["header-img"] %>')
+        <%} %>
+    }
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <% if (is_post()) { %>
+                    <div class="post-heading">
+                        <div class="tags">
+                            <% page.tags.forEach(function(tag){ %>
+                              <a class="tag" href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>"><%= tag.name %></a>
+                            <% }) %>
+                        </div>
+                        <h1><%= page.title %></h1>
+                        <h2 class="subheading"><%= page.subtitle || "" %></h2>
+                        <span class="meta">
+                            Posted by <%- page.author || config.author %> on
+                            <%= page.date.format(config.date_format) %>
+                        </span>
+                    </div>
+                <% } else { %>
+                    <div class="site-heading">
+                        <h1><%= page.title || config.title %></h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"><%= page.description || config.subtitle || "" %></span>
+                    </div>
+                <% } %>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,131 @@
+---
+layout: layout
+---
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <% if(config.sidebar == false) { %>
+<!-- NO SIDEBAR -->
+    <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+                <%- page.content || body %>
+            </div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                <% if(config['featured-tags']) { %>
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="<%= config.root %>tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        <% site.tags.map(function(tag){  %>
+                            <% if(tag.length > config['featured-condition-size']) { %>
+                            <a href="<%= config.root %>tags/#<%= tag.name %>" title="<%= tag.name %>" rel="<%= tag.length %>"><%= tag.name %></a>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </section>
+                <% }%>
+
+
+                <!-- Friends Blog -->
+                <% if(config.friends) { %>
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    <% config.friends.forEach(function(friend){ %>
+                        <li><a href="<%= friend.href %>"><%= friend.title %></a></li>
+                    <% }); %>
+                </ul>
+                <% }%>
+            </div>
+        <%} else { %>
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <%- page.content || body %>
+
+                <!-- 如果开启评论功能 -->
+                <% if(page.comments) { %>
+                    <hr>
+
+                    <% if(config['duoshuo_username']) { %>
+                    <!-- 多说评论框 start -->
+                    <div class="comment">
+                        <div class="ds-thread"
+                            data-thread-key="<%= page.path %>"
+                            data-title="<%= page.title %>"
+                            data-url="<%= page.permalink %>" >
+                        </div>
+                    </div>
+                    <!-- 多说评论框 end -->
+                    <% } %>
+
+                    <% if(config['disqus_username']) { %>
+                    <!-- disqus 评论框 start -->
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                    <!-- disqus 评论框 end -->
+                    <% } %>
+
+
+                    <% if(config['duoshuo_username']) { %>
+                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                        // dynamic User by Hux
+                        var _user = '<%= config['duoshuo_username'] %>';
+
+                        // duoshuo comment query.
+                        var duoshuoQuery = {short_name: _user };
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0]
+                             || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!-- 多说公共JS代码 end -->
+                    <% } %>
+
+                    <% if(config['disqus_username']) { %>
+                    <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES * * */
+                        var disqus_shortname = "<%= config['disqus_username'] %>";
+                        var disqus_identifier = "<%= page.permalink %>";
+                        var disqus_url = "<%= page.permalink %>";
+
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+
+                        
+                    </script>
+                    <!-- disqus 公共JS代码 end -->
+                    <% } %>
+                <% } %>
+            </div>
+
+          <%- partial('_partial/sidebar') %>
+
+        <%} %>
+    </div>
+</div>

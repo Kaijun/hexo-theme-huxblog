@@ -380,7 +380,7 @@ pre code {
   background-size: cover;
   -o-background-size: cover;
   margin-bottom: 0px;
-  /* 0 on mobile, modify by Hux */
+  /* modify by Yu-Hsuan Yen */
 }
 @media only screen and (min-width: 768px) {
   .intro-header {
