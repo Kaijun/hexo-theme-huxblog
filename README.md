@@ -1,8 +1,8 @@
-#Hexo-Theme-Huxblog
+# Hexo-Theme-Huxblog
 
 > Ported Theme of [Hux Blog](https://github.com/Huxpro/huxpro.github.io), Thank [Huxpro](https://github.com/Huxpro) for designing such a flawless theme.
 
-###[Demo &rarr;](http://kaijun.rocks/hexo-theme-huxblog/)
+### [Demo &rarr;](http://kaijun.github.io/hexo-theme-huxblog)
 
 
 ![](http://huangxuan.me/img/blog-desktop.jpg)
